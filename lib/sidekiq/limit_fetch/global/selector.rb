@@ -57,7 +57,7 @@ module Sidekiq::LimitFetch::Global
             local probed_key        = namespace..'probed:'..queue
             local pause_key         = namespace..'pause:'..queue
             local limit_key         = namespace..'limit:'..queue
-            local process_limit_key = namespace..'process_limit:'..queue
+            local process_limit_key = namespace..'process_limit:'..worker_name..':'..queue
             local block_key         = namespace..'block:'..queue
 
             local paused, limit, process_limit, can_block =

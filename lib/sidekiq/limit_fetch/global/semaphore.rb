@@ -30,15 +30,15 @@ module Sidekiq::LimitFetch::Global
     end
 
     def process_limit
-      value = redis {|it| it.get "#{PREFIX}:process_limit:#@name" }
+      value = redis {|it| it.get "#{PREFIX}:process_limit:#{Selector.uuid}:#@name" }
       value.to_i if value
     end
 
     def process_limit=(value)
       if value
-        redis {|it| it.set "#{PREFIX}:process_limit:#@name", value }
+        redis {|it| it.set "#{PREFIX}:process_limit:#{Selector.uuid}:#@name", value }
       else
-        redis {|it| it.del "#{PREFIX}:process_limit:#@name" }
+        redis {|it| it.del "#{PREFIX}:process_limit:#{Selector.uuid}:#@name" }
       end
     end
 
