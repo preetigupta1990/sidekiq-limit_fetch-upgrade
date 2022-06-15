@@ -15,8 +15,8 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep %r{^spec/}
   gem.require_paths = %w(lib)
 
-  gem.add_dependency 'sidekiq', '>= 4'
-  gem.add_development_dependency 'redis-namespace', '~> 1.5', '>= 1.5.2'
+  gem.add_dependency 'sidekiq'
+  gem.add_development_dependency 'redis-namespace'
   gem.add_development_dependency 'rspec'
   gem.add_development_dependency 'rake'
 end
